@@ -64,10 +64,9 @@ backup_dir() {
     local __retval=$1
     local backup_dir=""
     # TODO: check for good values
-    # TODO: use parent of sidekick!
+    # All backups for each stack are stored in the same directory.
     curl_it stack_name "$RANCHER_CONTAINER_URL/stack_name"
-    curl_it service_name "$RANCHER_CONTAINER_URL/service_name"
-    local backup_dir="$BACKUP_HOME/$stack_name/$service_name"
+    local backup_dir="$BACKUP_HOME/$stack_name"
     # TODO: check for writability
     if [ ! -e $backup_dir ]; then
         echo "Directory not found, creating..."

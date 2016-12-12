@@ -36,6 +36,7 @@ Important notes:
 * The backup container must be a sidekick.
 * `BACKUP_HOME` must be set to the top-level directory of the backups. (TODO: named volume instead?)
 * cron is nice but not necessary.
+* All services being backed up must be mounted by the backup container.
 
 ## Configure the following metadata in the `rancher-compose.yml` file:
 
@@ -61,6 +62,7 @@ backup:
 ```
 
 Notes:
+* The metadata must be in the primary service, even when backing up volumes from other services!
 * The `include` key is required and must be a pathname.
 * The `exclude` key is optional and defaults to ''.
 * The `keep` key is also optional, and has a default value of 1.
@@ -72,7 +74,7 @@ Every time the container runs, it will do the following:
 1. Check its configuration for consistency.
 2. Create directories if necessary.
 
-Backups are stored in a directory structure under the `BACKUP_HOME` directory, starting with the service name, and then the stack name.  Backups for the `backup` service in the `minecraft` stack with a `BACKUP_HOME` value of `/backups` will be found in `/backups/minecraft/backup`.
+Backups are stored in a directory structure under the `BACKUP_HOME` directory,  by the stack name.  Backups for the `minecraft` stack with a `BACKUP_HOME` value of `/backups` will be found in `/backups/minecraft`.
 
 For each backup found under the metadata:
 1. A new tar-based backup is created, including the desired directories but not the undesired directories.
