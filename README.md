@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/mathuin/rancher-backup/tree/master.svg?style=svg)](https://circleci.com/gh/mathuin/rancher-backup/tree/master)
+[![Build Status](https://travis-ci.org/mathuin/rancher-backup.svg?branch=master)](https://travis-ci.org/mathuin/rancher-backup)
 # rancher-backup
 
 This repository contains a very simple container which backs up volumes attached to parent containers.
@@ -6,7 +6,6 @@ This repository contains a very simple container which backs up volumes attached
 # Usage
 
 ## Configure the service in the `docker-compose.yml` file:
-
 1. Add this container as a sidekick to the target service.
 2. Set the environment variable `BACKUP_HOME` for the top-level backups directory.
 3. Set the cron entry.
