@@ -74,7 +74,7 @@ Every time the container runs, it will do the following:
 1. Check its configuration for consistency.
 2. Create directories if necessary.
 
-Backups are stored in a directory structure under the `BACKUP_HOME` directory,  by the stack name.  Backups for the `minecraft` stack with a `BACKUP_HOME` value of `/backups` will be found in `/backups/minecraft`.
+Backups are stored in a directory structure under the `BACKUP_HOME` directory, by the stack name.  Backups for the `minecraft` stack with a `BACKUP_HOME` value of `/backups` will be found in `/backups/minecraft`.
 
 For each backup found under the metadata:
 1. A new tar-based backup is created, including the desired directories but not the undesired directories.
